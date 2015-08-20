@@ -1,0 +1,241 @@
+/* CSS Document */
+@import url(http://fonts.googleapis.com/css?family=Quicksand|Open+Sans);
+@charset "UTF-8";
+
+
+/* Meyere's CSS reset
+	CITE: http://meyerweb.com/eric/tools/css/reset/ */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center, dl, dt, dd, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	font-family: 'Open Sans', sans-serif;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ul {
+	/* list-style:none; */
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a {
+	outline:none;
+	color:inherit;
+}
+a:link {text-decoration: none}
+a:visited {text-decoration: none}
+a:active {text-decoration: none; color:inherit;}
+a:hover {text-decoration: none;}
+/* End CSS reset */
+
+/* defaults */
+h1, h2, h3, h4, h5 {
+	font-family: 'Quicksand', sans-serif;
+	font-weight:400;	
+}
+
+header {
+	padding:20px;
+	text-align:center;
+	max-width:400px;
+	margin:0 auto;
+}
+
+h1 {
+	font-size:40px;	
+	margin-bottom:20px;
+}
+
+h2 {
+	font-size:24px;	
+	margin-bottom:10px;
+}
+
+p {
+	font-size:14px;
+	line-height:28px;
+}
+
+/* END defaults */
+
+/* selection screen */
+.play-group p {
+	text-align:justify;
+}
+
+.play-group h2 {
+	text-align:center;
+}
+
+.play-group {
+	width:180px;
+	float:left;
+	padding:20px;
+	margin:0 auto;
+	transition:all 0.3s;
+}
+
+.play-group:nth-child(odd) {
+	border-top:5px solid #347CB8;	
+}
+
+.play-group:nth-child(even) {
+	border-top:5px solid #C44920;
+}
+
+.play-group:nth-child(odd):hover {
+	background-color:#97C6DF;	
+}
+
+.play-group:nth-child(even):hover {
+	background-color:#E2B7A5;	
+}
+
+.selection-container {
+	max-width:660px;
+	margin:0 auto;
+}
+
+.bottom-container {
+	padding:20px;
+	padding-top:40px;
+	clear:both;
+	max-width:400px;
+	margin:0 auto;
+	text-align:justify;
+}
+
+.bottom-container h2 {
+	text-align:center;	
+}
+/* END selection screen */
+
+/* main game */
+
+#msgdiv {
+	width:100%;
+	position:relative;
+	line-height:35px;
+	text-align:center;
+	background-color:#683833;
+	color:#FFF;
+}
+
+.game-container {
+	margin:0 auto;
+	width: 100%;
+	text-align: center;
+}
+
+.game-hold {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+/* END main game */
+
+/* groupplay */
+.note {
+	font-size:12px;
+	color:#999;
+}
+
+form {
+	width:400px;
+	margin:0 auto;
+}
+
+input {
+	margin-left:20px;
+	margin-bottom:20px;
+}
+
+.button {
+	background-color:#3388C1;	
+	border:none;
+	border-radius:10px;
+	padding:10px;
+	color:#FFF;
+	cursor:pointer;
+	transition:all 0.3s;
+	box-shadow:0px 0px 10px rgba(0,0,0,0.0);
+	margin-left:0px;
+	text-align: center;
+}
+
+.button:hover {
+	background-color:#64A3DB;
+	box-shadow:0px 0px 10px rgba(0,0,0,0.5);
+}
+
+.red-label {
+	color: #C44920;
+}
+
+.blue-label {
+	color: #347CB8;	
+}
+
+#error-input {
+	text-align:center;
+	font-weight:700;
+	font-size:16px;
+	color:#C00;
+}
+
+#groupplay_start {
+	margin:0 auto;
+	/*width:100%;*/
+	padding:20px;
+	text-align:center;
+	display: inline-block;
+	box-sizing: border-box;
+}
+
+#groupplay_start p {
+	font-size:16px;
+}
+
+#error {
+	font-family: 'Quicksand', sans-serif;
+	color:#999;
+}
+
+.top-groupplay {
+	margin-bottom:20px;	
+}
+
+.top-groupplay p, .top-groupplay span {
+	font-weight:700;
+	font-family: 'Quicksand', sans-serif;
+}
+/* END groupplay */

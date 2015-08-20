@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+<meta content="utf-8" http-equiv="encoding" />
+<title>TEST</title>
+
+<script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+<script src="pixi.dev.js"></script>
+<script src="square.js"></script>
+<script src="checker.js"></script>
+<script src="CheckerBoardView.js"></script>
+
+</head>
+<body>
+<center>
+<table border='0'><tr>
+<td>
+    <div class="game"></div>
+</td>
+<td>
+    <form>
+        <p>Checker is at:</p>
+        <p>X: <input id="at_x" type="text" name="at_x" size='2' />
+           Y: <input id="at_y" type="text" name="at_y" size='2' /></p>
+        <p>Move checker to:</p>
+        <p>X: <input id="to_x" type="text" name="to_x" size='2' />
+           Y: <input id="to_y" type="text" name="to_y" size='2' /></p>
+        <input id="move_it" type="button" value="Move Checker" /><br/><br/>
+        <input id="delete_it" type="button" value="Delete Checker" />
+    </form>
+</td>
+</tr></table>
+<script>
+var checker_board;
+
+var checker_cb = function()
+{
+    document.getElementById("at_x").value = this.pos_x;
+    document.getElementById("at_y").value = this.pos_y;
+}
+
+var square_cb = function()
+{
+    document.getElementById("to_x").value = this.pos_x;
+    document.getElementById("to_y").value = this.pos_y;
+}
+
+var move_checker_button = function()
+{
+    checker_board.move_checker(parseInt($("#at_x").val()),
+                               parseInt($("#at_y").val()),
+                               parseInt($("#to_x").val()),
+                               parseInt($("#to_y").val()));
+}
+
+var delete_checker_button = function()
+{
+    checker_board.delete_checker(parseInt($("#at_x").val()),
+                                 parseInt($("#at_y").val()));
+}
+
+//Function to get the size of the square canvas
+//Will be whichever is smaller: width or height of the window.
+function get_canvas_size()
+{
+    var canvasSize = $(window).width() < $(window).height() 
+                   ? $(window).width() : $(window).height();
+	canvasSize -= 26; //Back it off a little bit...
+
+    return canvasSize;
+}
+
+//Called when the browser window is resized.
+function on_resize()
+{
+    checker_board.resize(get_canvas_size());
+}
+$(window).resize(on_resize);
+
+function get_started()
+{
+    checker_board = new CheckerBoardView();
+    checker_board.init_board(checker_cb, square_cb, get_canvas_size());
+
+    document.getElementById("move_it").onclick = move_checker_button;
+    document.getElementById("delete_it").onclick = delete_checker_button;
+	$(".game").append(checker_board.get_renderer_view());
+
+    //Begin animation
+	requestAnimFrame(animate);
+}
+
+
+function animate()
+{
+	requestAnimFrame(animate);
+
+    checker_board.animate();
+}
+
+$(function ()
+{
+	var loader = new PIXI.AssetLoader(["checker1.png", "checker2.png", "grid1.png", "grid2.png","king1.png", "king2.png"]);
+	loader.onComplete = get_started;
+	loader.load();
+});
+
+</script>
+</body>
+</html>
